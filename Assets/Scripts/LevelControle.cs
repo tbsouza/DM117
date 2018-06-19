@@ -3,23 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Classe para controle do jogo.
+/// </summary>
 public class LevelControle : MonoBehaviour {
 
+    /// <summary>
+    /// Função para carregar um Level a partir de seu nome
+    /// </summary>
+    /// <param name="sceneNome">Nome da cena a ser carregada</param>
 	public void CarregaLevel(string sceneNome) {
-        Bloco.numBlocosDestrutivel = 0;
+        //TODO - zera pontuação
         SceneManager.LoadScene(sceneNome);
     }
 
+    /// <summary>
+    /// Carrega o próximo Level a partir do atual.
+    /// </summary>
     public void CarregaProxLevel() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene()
-            .buildIndex + 1);
-    }
+        
+        // Número da cena atual
+        int numCena = SceneManager.GetActiveScene().buildIndex;
 
-    public void BlocoDestruido() {
-        if(Bloco.numBlocosDestrutivel <= 0) {
-            Bloco.numBlocosDestrutivel = 0;
-            CarregaProxLevel();
-        }
+        // Carrega próxima cena
+        SceneManager.LoadScene(numCena + 1);
     }
 
 }

@@ -43,7 +43,7 @@ public class Bloco : MonoBehaviour {
         int maxHits = sprites.Length + 1;
         if (numHits >= maxHits) {
             numBlocosDestrutivel--;
-            levelControle.BlocoDestruido();
+            //levelControle.BlocoDestruido();
             Destroy(gameObject);
         } else {
             CarregaSprite();
