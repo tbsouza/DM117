@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Destrutivel
   - Indestrutivel
+  - Jogador
+  - Inimigo
   layers:
   - Default
   - TransparentFX
