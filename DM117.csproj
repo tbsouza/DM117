@@ -238,6 +238,7 @@
     <Compile Include="Assets\Scripts\Bloco.cs" />
     <Compile Include="Assets\Scripts\Bola.cs" />
     <Compile Include="Assets\Scripts\GameOver.cs" />
+    <Compile Include="Assets\Scripts\Inimigo.cs" />
     <Compile Include="Assets\Scripts\LevelControle.cs" />
     <Compile Include="Assets\Scripts\MusicaControle.cs" />
     <Compile Include="Assets\Scripts\Plataforma.cs" />

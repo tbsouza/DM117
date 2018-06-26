@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212991050214203920}
   - component: {fileID: 50513558696616038}
   - component: {fileID: 60190351892350774}
+  - component: {fileID: 114254531331992254}
   m_Layer: 0
   m_Name: Abacaxi
   m_TagString: Inimigo
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1234025025164904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.33, y: 7.4926, z: 0}
+  m_LocalPosition: {x: 7.98, y: 7, z: 0}
   m_LocalScale: {x: 0.4291601, y: 0.40431172, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -184,6 +185,19 @@ PolygonCollider2D:
       - {x: -0.465, y: 0.645}
       - {x: -0.49499997, y: 0.675}
       - {x: -0.515, y: 0.675}
+--- !u!114 &114254531331992254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1234025025164904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4e6f20b53b79a429e33d4ff8931918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosao: {fileID: 1186827957196338, guid: 975969afd10fb4044986ce7136717141, type: 2}
+  gameoverTime: 0.55
 --- !u!212 &212991050214203920
 SpriteRenderer:
   m_ObjectHideFlags: 1

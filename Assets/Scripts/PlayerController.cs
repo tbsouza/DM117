@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 /// <summary>
 /// Classe para controlar o Player (nave)
 /// </summary>
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     // enum do tipo de movimento da nave
     private enum TipoMovimento { Mouse, Teclado }
 
+    [Header("Movimento")]
     [SerializeField]
     [Tooltip("Velocidade de movimento da nave")]
     [Range(5,20)]
@@ -64,9 +66,6 @@ public class PlayerController : MonoBehaviour {
             rb2d.AddForce( new Vector2(velocidadeLateral, 0) );
         }
 
- 
     }
-
-
 
 }
