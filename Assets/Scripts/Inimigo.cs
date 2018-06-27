@@ -35,7 +35,7 @@ public class Inimigo : MonoBehaviour {
     /// <param name="collision">Objeto que colidiu</param>
     private void OnCollisionEnter2D(Collision2D collision) {
 
-        // verifica se houve colisao com o abacaxi
+        // verifica se houve colisao com a nave
         if (collision.gameObject.GetComponent<PlayerController>()){
 
             // Instancia a explosao na posicao da nave

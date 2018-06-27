@@ -12,6 +12,12 @@ public class PlayerController : MonoBehaviour {
     // enum do tipo de movimento da nave
     private enum TipoMovimento { Mouse, Teclado }
 
+    // audiosource da explosao
+    private AudioSource audioSource;
+
+    // RigidBody da nave ???
+    private Rigidbody2D rb2d;
+
     [Header("Movimento")]
     [SerializeField]
     [Tooltip("Velocidade de movimento da nave")]
@@ -22,12 +28,14 @@ public class PlayerController : MonoBehaviour {
     [Tooltip("Movimento por teclado ou mouse")]
     private TipoMovimento movimentoHorizontal;
 
-    private Rigidbody2D rb2d;
-
 
     // Use this for initialization
     void Start () {
+        // pega o componente rigidbody da nave
         rb2d = GetComponent<Rigidbody2D>();
+
+        // pega o componente audiosource da nave
+        audioSource = GetComponent<AudioSource>();
     }
 	
 
@@ -65,7 +73,23 @@ public class PlayerController : MonoBehaviour {
             // adiciona forca na nava
             rb2d.AddForce( new Vector2(velocidadeLateral, 0) );
         }
-
     }
+
+
+    /// <summary>
+    /// Metodo chamado quando ha colisao com a nave.
+    /// </summary>
+    /// <param name="collision">Objeto que colidiu.</param>
+    private void OnCollisionEnter2D(Collision2D collision){
+
+        // verifica se colidiu com inimigo
+        if (collision.transform.CompareTag("Inimigo")) {
+
+            // toca o som de explosao
+            AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
+        }
+    }
+
+
 
 }
