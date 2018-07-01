@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Classe do inimigo (abacaxi)
+/// Classe do comportamento do inimigo (abacaxi)
 /// </summary>
 public class Inimigo : MonoBehaviour {
 
@@ -17,17 +17,15 @@ public class Inimigo : MonoBehaviour {
     [Range(0.1f, 0.9f)]
     private float gameoverTime;
 
+    // instancia de LevelController
+    private LevelControle levelControle;
+
 
     // Use this for initialization
     void Start () {
-		
-	}
+        levelControle = FindObjectOfType<LevelControle>();
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 
     /// <summary>
     /// Metodo para tratar colisoes
@@ -56,7 +54,7 @@ public class Inimigo : MonoBehaviour {
     /// </summary>
     void LoadGameOver() {
         // Carrega a cena de gameover
-        SceneManager.LoadScene("TelaGameOver");
+        levelControle.CarregaLevel("TelaGameOver");
     }
 
 }

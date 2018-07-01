@@ -8,6 +8,8 @@ TagManager:
   - Indestrutivel
   - Jogador
   - Inimigo
+  - ObstaculoSpawn
+  - spawns
   layers:
   - Default
   - TransparentFX

@@ -235,13 +235,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Bloco.cs" />
-    <Compile Include="Assets\Scripts\Bola.cs" />
     <Compile Include="Assets\Scripts\GameOver.cs" />
     <Compile Include="Assets\Scripts\Inimigo.cs" />
+    <Compile Include="Assets\Scripts\InimigoController.cs" />
     <Compile Include="Assets\Scripts\LevelControle.cs" />
     <Compile Include="Assets\Scripts\MusicaController.cs" />
-    <Compile Include="Assets\Scripts\Plataforma.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
