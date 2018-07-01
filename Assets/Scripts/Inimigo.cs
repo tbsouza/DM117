@@ -26,7 +26,6 @@ public class Inimigo : MonoBehaviour {
         levelControle = FindObjectOfType<LevelControle>();
     }
 	
-
     /// <summary>
     /// Metodo para tratar colisoes
     /// </summary>
@@ -45,9 +44,7 @@ public class Inimigo : MonoBehaviour {
             // Chama LoadGameOver apos gameoverTime
             Invoke("LoadGameOver", gameoverTime);
         }
-
     }
-
 
     /// <summary>
     /// Metodo para carregar a cena de gameover

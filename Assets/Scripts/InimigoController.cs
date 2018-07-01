@@ -51,7 +51,6 @@ public class InimigoController : MonoBehaviour {
         invocaObstaculos();
     }
 
-
     /// <summary>
     /// Metodo para chamar a criação de obstaculos
     /// </summary>
@@ -67,18 +66,21 @@ public class InimigoController : MonoBehaviour {
     /// </summary>
     private void instantiateObstaculo(){
 
-        // pega um spawn point aleatorio
-        var pontoSpawn = listSpawn[ UnityEngine.Random.Range(0, listSpawn.Count) ];
+        // se nnao estiver pausado, instancia novos obstaculos
+        if (!MenuPauseComp.pausado){
 
-        // posicao do ponto
-        var spawnPos = pontoSpawn.transform.position;
+            // pega um spawn point aleatorio
+            var pontoSpawn = listSpawn[UnityEngine.Random.Range(0, listSpawn.Count)];
 
-        // instancia o novo obstaculo
-        var novoObstaculo = Instantiate(obstaculo, spawnPos, Quaternion.identity);
+            // posicao do ponto
+            var spawnPos = pontoSpawn.transform.position;
 
-        // torna o obstaculo filho do spawn point
-        novoObstaculo.SetParent(pontoSpawn.transform);
+            // instancia o novo obstaculo
+            var novoObstaculo = Instantiate(obstaculo, spawnPos, Quaternion.identity);
+
+            // torna o obstaculo filho do spawn point
+            novoObstaculo.SetParent(pontoSpawn.transform);
+        }
     }
+
 }
-
-

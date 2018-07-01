@@ -239,6 +239,7 @@
     <Compile Include="Assets\Scripts\Inimigo.cs" />
     <Compile Include="Assets\Scripts\InimigoController.cs" />
     <Compile Include="Assets\Scripts\LevelControle.cs" />
+    <Compile Include="Assets\Scripts\MenuPauseComp.cs" />
     <Compile Include="Assets\Scripts\MusicaController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
   </ItemGroup>

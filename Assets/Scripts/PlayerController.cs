@@ -37,13 +37,17 @@ public class PlayerController : MonoBehaviour {
         // pega o componente audiosource da nave
         audioSource = GetComponent<AudioSource>();
     }
-	
 
 	// Update is called once per frame
 	void Update () {
+
+        // Verifica se o jogo está pausado
+        if ( MenuPauseComp.pausado ) {
+            return;
+        }
+
         movimentoNave();
     }
-
 
     /// <summary>
     /// Metodo para controlar o movimento lateral da nave
@@ -67,6 +71,9 @@ public class PlayerController : MonoBehaviour {
         }
         else {
 
+
+            // velocidadeLateral * Time.deltaTime * 60
+
             // velocidade de movimento da nave
             var velocidadeLateral = Input.GetAxis("Horizontal") * velocidadeMovimento;
 
@@ -89,7 +96,5 @@ public class PlayerController : MonoBehaviour {
             AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
         }
     }
-
-
 
 }
