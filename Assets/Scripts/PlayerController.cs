@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,7 +47,41 @@ public class PlayerController : MonoBehaviour {
             return;
         }
 
+        // verifica click do mouse
+        if (Input.GetMouseButtonDown(0)) {
+            Debug.Log("Click");
+
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition.z = 0;
+
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(mousePosition);
+            ClickarObejeto(mousePos);
+        }
+
+        // movimento da nave
         movimentoNave();
+    }
+
+    /// <summary>
+    /// Metodo para para gerar Raycast na direcao do click do mouse
+    /// e destruir o inimigo clickado.
+    /// </summary>
+    /// <param name="mousePosition">Posicao do mouse apos click</param>
+    private static void ClickarObejeto(Vector3 mousePos){
+
+
+        // Converte a posicao do mouse em Ray
+        Ray clickRay = Camera.main.ScreenPointToRay(mousePos);
+
+        // Informacoes do objeto clikcado
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero); ;
+
+        if ( hit.collider != null ) {
+            // se objeto clickado, chama metodo ObjetoClickado por mensagem
+            hit.transform.SendMessage("ObjetoClickado", SendMessageOptions.DontRequireReceiver);
+
+            Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
+        }
     }
 
     /// <summary>

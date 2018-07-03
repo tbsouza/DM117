@@ -15,6 +15,17 @@ public class LevelControle : MonoBehaviour {
 	public void CarregaLevel(string sceneNome) {
         //TODO - zera pontuação
         SceneManager.LoadScene(sceneNome);
+
+#if UNITY_ADS
+        // verifica se está indo para a tela de gameover ou de inicio
+        if (sceneNome.Equals("TelaInicial") || sceneNome.Equals("TelaGameOver")){
+            if (UnityAdControle.showAds){
+                // exibe anuncio simples
+                UnityAdControle.ShowAds();
+            }
+        }
+#endif
+
     }
 
     /// <summary>
