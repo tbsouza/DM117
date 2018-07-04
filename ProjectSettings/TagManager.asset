@@ -10,7 +10,7 @@ TagManager:
   - Inimigo
   - ObstaculoSpawn
   - spawns
-  - menuAnuncio
+  - Anuncio
   layers:
   - Default
   - TransparentFX

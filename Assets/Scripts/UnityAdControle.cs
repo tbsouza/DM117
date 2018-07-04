@@ -6,6 +6,7 @@ using UnityEngine;
 #if UNITY_ADS
 using UnityEngine.Advertisements;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 #endif
 
 public class UnityAdControle : MonoBehaviour {
@@ -13,6 +14,12 @@ public class UnityAdControle : MonoBehaviour {
     [Tooltip("Habilita anuncios no jogo")]
     [SerializeField]
     public static bool showAds = true;
+
+    //Tempo de espera do anuncio de recompensa
+    public static int tempoEsperaAd = 20;
+
+    // var oara controlar o tempo do anuncio
+    public static DateTime? proxTempoReward = null;
 
 
 	// Use this for initialization
@@ -38,5 +45,49 @@ public class UnityAdControle : MonoBehaviour {
 #endif
     }
 
-    
+
+    /// <summary>
+    /// Metodo que mostra o anuncio de recompensa.
+    /// </summary>
+    public static void ShowAdReward() {
+#if UNITY_ADS
+
+        // adiciona um tempo para o proximo anuncio
+        proxTempoReward = DateTime.Now.AddSeconds(tempoEsperaAd);
+
+        // verifica se o anuncio esta pronto para exibir
+        if (Advertisement.IsReady()) {
+
+            var opt = new ShowOptions{
+                resultCallback = TratarResultado
+            };
+
+            Advertisement.Show(opt);
+        }
+#endif
+    }
+
+
+    /// <summary>
+    /// Metodo para tratar o resultado do anuncio
+    /// </summary>
+    /// <param name="result">Resultado do anuncio</param>
+ #if UNITY_ADS
+    public static void TratarResultado( ShowResult result ) {
+
+        switch (result){
+            case ShowResult.Finished:
+                SceneManager.LoadScene("Fase");
+                break;
+            case ShowResult.Skipped:
+                Debug.Log("Ad skipped");
+                break;
+            case ShowResult.Failed:
+                Debug.Log("Ad failed");
+                break;
+        }
+      
+    }
+#endif
+
 }

@@ -31,8 +31,6 @@ public class Inimigo : MonoBehaviour {
     // referencia do jogador
     private GameObject jogador;
 
-    // referencia para o menu com a opcao de continuar apos anuncio
-    //private GameObject menuAnuncio;
 
     // Use this for initialization
     void Start () {
@@ -50,33 +48,7 @@ public class Inimigo : MonoBehaviour {
 
         // verifica se houve colisao com a nave
         if (collision.gameObject.GetComponent<PlayerController>()){
-/*
-            menuAnuncio = GameObject.FindGameObjectWithTag("menuAnuncio");
-
-            menuAnuncio.gameObject.SetActive(true);
-
-            var botoao = menuAnuncio.transform.GetComponentInChildren<Button>();
-            Button botaoContinue = null;
             
-            if (botoao.gameObject.name.Equals("menuAnuncio")) {
-                botaoContinue = botoao; // referencia do botao continue
-            }
-
-            if (botaoContinue) {
-#if UNITY_ADS
-                botaoContinue.onClick.AddListener(UnityAdControle.ShowRewardAd());
-                UnityAdControle.obstaculo = this;
-#else
-                botaoContinue.gameObject.SetActive(false);
-#endif
-            }
-
-            // esconde o player
-            collision.gameObject.SetActive(false);
-
-            jogador = collision.gameObject;
-*/
-
             // Instancia a explosao na posicao da nave
             Instantiate(explosaoNave, collision.transform.position, Quaternion.identity);
 

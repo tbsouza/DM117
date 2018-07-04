@@ -819,7 +819,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Proteja       a       cidade
+  m_Text: Proteja       a       cidade       dos       abacaxis
 --- !u!222 &1961156823
 CanvasRenderer:
   m_ObjectHideFlags: 0
