@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadeMovimento: 10
-  movimentoHorizontal: 0
+  movimentoHorizontal: 1
 --- !u!212 &212027066020981262
 SpriteRenderer:
   m_ObjectHideFlags: 1

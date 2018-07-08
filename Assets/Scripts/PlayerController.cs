@@ -103,17 +103,23 @@ public class PlayerController : MonoBehaviour {
 
             // Atualiza a posicao da nave
             transform.position = navePosition;
-        }
-        else {
 
-
+        } else {
             // velocidadeLateral * Time.deltaTime * 60
 
             // velocidade de movimento da nave
-            var velocidadeLateral = Input.GetAxis("Horizontal") * velocidadeMovimento;
+            var velocidadeLateral = Input.GetAxis("Horizontal") * 16;
 
             // adiciona forca na nava
-            rb2d.AddForce( new Vector2(velocidadeLateral, 0) );
+            //rb2d.AddForce( new Vector2(0, velocidadeLateral) );
+            var navePosition = new Vector2(0, transform.position.y);
+
+            navePosition.x = Mathf.Clamp(velocidadeLateral, 1.0f, 15.0f);
+
+            if (velocidadeLateral != 0){
+                //transform.position = (navePosition);
+                rb2d.AddForce(navePosition);
+            }
         }
     }
 
