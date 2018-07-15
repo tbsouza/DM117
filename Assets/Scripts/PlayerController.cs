@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     [Header("Movimento")]
     [SerializeField]
     [Tooltip("Velocidade de movimento da nave")]
-    [Range(5,20)]
+    [Range(5.0f,10.0f)]
     private int velocidadeMovimento;
 
     [SerializeField]
@@ -105,21 +105,23 @@ public class PlayerController : MonoBehaviour {
             transform.position = navePosition;
 
         } else {
-            // velocidadeLateral * Time.deltaTime * 60
 
-            // velocidade de movimento da nave
-            var velocidadeLateral = Input.GetAxis("Horizontal") * 16;
+            // movimento horizontal do teclado
+            float dir = Input.GetAxis("Horizontal");
 
-            // adiciona forca na nava
-            //rb2d.AddForce( new Vector2(0, velocidadeLateral) );
-            var navePosition = new Vector2(0, transform.position.y);
+            float movX = dir*Time.deltaTime*velocidadeMovimento;
 
-            navePosition.x = Mathf.Clamp(velocidadeLateral, 1.0f, 15.0f);
+            // definindo o deslocamento
+            Vector3 deslocamento = new Vector3(movX, 0);
 
-            if (velocidadeLateral != 0){
-                //transform.position = (navePosition);
-                rb2d.AddForce(navePosition);
-            }
+            // movendo a nave
+            transform.Translate(deslocamento, Space.World);
+
+            // Limitando o movimento em x
+            Vector3 posGO = new Vector3(Mathf.Clamp(transform.position.x, 1.7f, 14.4f),
+                                transform.position.y);
+
+            transform.position = posGO;
         }
     }
 

@@ -48,7 +48,7 @@ public class InimigoController : MonoBehaviour {
             }
         }
 
-        //invocaObstaculos();
+        invocaObstaculos();
     }
 
     /// <summary>
